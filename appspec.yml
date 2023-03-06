@@ -1,0 +1,25 @@
+version: 0.0
+os: linux
+files:
+    - source: /
+      destination: /var/www/html/test-cicd-project
+file_exists_behavior: OVERWRITE
+hooks:
+  BeforeInstall:
+    - location: deploy-scripts/before_install.sh
+      runas: ubuntu
+  #AfterInstall:
+  #  - location: deploy-scripts/setup_env.sh
+  #    timeout: 300
+  #    runas: root
+  #  - location: deploy-scripts/set_file_permission.sh
+  #    timeout: 300
+  #    runas: root
+  # ApplicationStart:
+  #   - location: script/start_server.sh
+  #     timeout: 300
+  #     runas: root
+  # ApplicationStop:
+  #   - location: script/stop_server.sh
+  #     timeout: 300
+  #     runas: root
